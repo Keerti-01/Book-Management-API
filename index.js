@@ -19,7 +19,7 @@ app.get("/",(req,res) => {
 })
 
 
-//http://localhost:8000/books
+
 //GET all books
 /**
  * route                /books
@@ -28,13 +28,14 @@ app.get("/",(req,res) => {
  * parameter            none
  * methods              get
  */
+//http://localhost:8000/books
 app.get("/books",async (req,res) => {
     const getAllBooks = await bookModel.find(); //anything in green colour means that returns a promise
     return res.json(getAllBooks); //return because we want program to end after getting all the books
     //res.send(getAllBooks) same thing no difference //but json is the best exchange medium
 });
 
-//http://localhost:8000/book-isbn/12345ONE
+
 //GET specific book based on ISBN
 /**
  * route                /book-isbn/:isbn
@@ -43,6 +44,7 @@ app.get("/books",async (req,res) => {
  * parameter            isbn
  * methods              get
  */
+//http://localhost:8000/book-isbn/12345ONE
 app.get("/book-isbn/:isbn",async (req,res) => {  
     
     const {isbn} = req.params;  //destructuring or const isbn = req.params.isbn;
